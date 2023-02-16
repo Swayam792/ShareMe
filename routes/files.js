@@ -22,7 +22,6 @@ let upload = multer({
 }).single('myfile');
 
 router.post("/", (req, res) => {
-      
     // Store file
     upload(req, res, async (err) => {
 
@@ -30,7 +29,7 @@ router.post("/", (req, res) => {
         if(!req.file){
             return res.json({error: 'All Fields are required'});
         }
-
+      
         if(err){
             return res.status(500).send({error: err.message})
         }
