@@ -39,11 +39,10 @@ router.post("/", (req, res) => {
             uuid: uuidv4(),
             path: req.file.path,
             size: req.file.size
-        });
-       
+        }); 
         // Response -> Link 
-        const response = await file.save();
-
+        const response = await file.save(); 
+        console.log(response)
         return res.json({file : `${process.env.APP_BASE_URL}/files/${response.uuid}`});
         // http://localhost:5000/files/2usug32-3ihdig3jb
     }); 
