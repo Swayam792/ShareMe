@@ -15,7 +15,7 @@ const emailForm = document.querySelector("#emailForm");
 
 const toast = document.querySelector(".toast");
 
-const baseURL = "http://localhost:8000";
+const baseURL = "https://share-me-io50.onrender.com";
 const uploadURL = `${baseURL}/api/files`;
 const emailURL = `${baseURL}/api/files/send`;
 
@@ -112,7 +112,7 @@ const uploadFile = () => {
       onFileUploadSuccess(xhr.responseText);
     }
   };
-  
+
   xhr.open("POST", uploadURL,true);
   xhr.send(formData);
 };
