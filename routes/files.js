@@ -23,8 +23,7 @@ let upload = multer({
 
 router.post("/", (req, res) => {
     // Store file 
-    upload(req, res, async (err) => {
-        console.log(req.file);
+    upload(req, res, async (err) => { 
         // Validate request
         if(!req.file){
             return res.json({error: 'All Fields are required'});
@@ -41,8 +40,7 @@ router.post("/", (req, res) => {
             size: req.file.size
         }); 
         // Response -> Link 
-        const response = await file.save(); 
-        console.log(response)
+        const response = await file.save();  
         return res.json({file : `${process.env.APP_BASE_URL}/files/${response.uuid}`});
         // http://localhost:5000/files/2usug32-3ihdig3jb
     }); 

@@ -6,7 +6,8 @@ import connectDB from "./config/db.js";
 import filesRouter from "./routes/files.js";
 import showRouter from "./routes/show.js";
 import downloadRouter from "./routes/download.js";
-import mainRouter from "./routes/main.js"
+import mainRouter from "./routes/main.js";
+import deleteFilesInFolder from "./config/deletefile.js";
 
 const app = express();
 
@@ -23,8 +24,8 @@ app.use(express.json());
 
 // Template engine
 app.set('views', path.join(__dirname, '/views'));
-app.set("view-engine", "ejs")
-
+app.set("view-engine", "ejs");
+ 
 // Routes
 app.use("/", mainRouter)
 app.use("/api/files", filesRouter);

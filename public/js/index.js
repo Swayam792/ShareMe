@@ -125,8 +125,7 @@ const onFileUploadSuccess = (res) => {
   emailForm[2].removeAttribute("disabled");
   emailForm[2].innerText = "Send";
   progressContainer.style.display = "none"; // hide the box
-  const { file: url } = JSON.parse(res);
-  console.log(url);
+  const { file: url } = JSON.parse(res); 
   sharingContainer.style.display = "block";
   fileURL.value = url;
 };
@@ -144,8 +143,7 @@ emailForm.addEventListener("submit", (e) => {
     uuid: url.split("/").splice(-1, 1)[0],
     emailTo: emailForm.elements["to-email"].value,
     emailFrom: emailForm.elements["from-email"].value,
-  };
-  console.log(formData);
+  }; 
   fetch(emailURL, {
     method: "POST",
     headers: {

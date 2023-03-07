@@ -1,14 +1,15 @@
 import express from "express";
 import fileModel from "../models/files.js";
+import deleteFilesInFolder from "../config/deletefile.js";
 
 const router = express.Router();
 
 router.get("/:uuid", async (req, res) => {
-    try{
-        const file = await fileModel.findOne({uuid: req.params.uuid});
-
+    try{   
+        await deleteFilesInFolder();
+        const file = await fileModel.findOne({uuid: req.params.uuid}); 
         if(!file){
-            return res.render("download", {error: 'Link has been expired.'});
+            return res.render("download.ejs", {error: 'Link has been expired.'});
         }
         return res.render("download.ejs", {
             uuid: file.uuid,
